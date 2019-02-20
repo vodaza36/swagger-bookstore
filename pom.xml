@@ -5,12 +5,13 @@
     <artifactId>parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>swagger-bookstore</name>
+    <name>Bookstore Parent</name>
     <url>http://maven.apache.org</url>
 
     <modules>
         <module>api</module>
-        <module>server</module>
+        <module>server-swagger</module>
+        <module>server-openapi</module>
     </modules>
 
     <properties>
@@ -51,6 +52,11 @@
                     <groupId>io.swagger.codegen.v3</groupId>
                     <artifactId>swagger-codegen-maven-plugin</artifactId>
                     <version>3.0.4</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.openapitools</groupId>
+                    <artifactId>openapi-generator-maven-plugin</artifactId>
+                    <version>3.3.4</version>
                 </plugin>
             </plugins>
         </pluginManagement>

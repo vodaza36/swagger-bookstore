@@ -8,9 +8,9 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>server</artifactId>
+  <artifactId>server-swagger</artifactId>
   <packaging>jar</packaging>
-  <name>Bookstore Server</name>
+  <name>Bookstore Server (Swagger)</name>
 
   <dependencies>
     <dependency>
