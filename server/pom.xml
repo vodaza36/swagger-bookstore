@@ -50,7 +50,16 @@
               <output>${project.build.directory}/generated-sources/swagger</output>
               <language>spring</language>
               <modelPackage>at.hochbichler.bookstore.model</modelPackage>
-              <apiPackage>at.hochbichler.bookstore</apiPackage>
+              <apiPackage>at.hochbichler.bookstore.api</apiPackage>
+              <invokerPackage>at.hochbichler.bookstore.invoker</invokerPackage>
+              <addCompileSourceRoot>true</addCompileSourceRoot>
+              <configOptions>
+                <library>spring-boot</library>
+                <delegatePattern>true</delegatePattern>
+                <interfaceOnly>true</interfaceOnly>
+                <title>bookstore-server</title>
+                <java8>true</java8>
+              </configOptions>
             </configuration>
           </execution>
         </executions>
