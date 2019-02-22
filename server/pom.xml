@@ -45,6 +45,7 @@
                             <configOptions>
                                 <delegatePattern>true</delegatePattern>
                                 <useBeanValidation>true</useBeanValidation>
+                                <useOas2>true</useOas2>
                             </configOptions>
                         </configuration>
                     </execution>
