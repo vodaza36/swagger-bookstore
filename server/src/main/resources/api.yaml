@@ -10,17 +10,17 @@ info:
   version: "0.0.1"
 host: "localhost:8080"
 basePath: "/v0"
-schemes: 
- - http
+schemes:
+- http
 paths:
   /books:
     get:
       tags:
-        - "book"
+      - "book"
       operationId: "filterAllBooks"
       description: "Returns all books"
       produces:
-        - application/json
+      - application/json
       responses:
         '200':
           description: "Returns a list of books"
@@ -34,16 +34,16 @@ paths:
       operationId: "addNewBook"
       description: "Adds a new book"
       produces:
-        - application/json
+      - application/json
       consumes:
-        - application/json
+      - application/json
       parameters:
-        - in: "body"
-          name: "body"
-          description: "A JSON book objects"
-          required: true
-          schema:
-            $ref: '#/definitions/Book'
+      - in: "body"
+        name: "body"
+        description: "A JSON book objects"
+        required: true
+        schema:
+          $ref: '#/definitions/Book'
       responses:
         '201':
           description: "Returns the added book"
@@ -63,5 +63,9 @@ definitions:
       description:
         type: string
     required:
-      - id
-      - name
+    - id
+    - name
+    example:
+    - id: 100
+      name: Book title
+      description: This is the book description
