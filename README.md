@@ -13,7 +13,7 @@ In der `pom.xml` die Swagger-Maven-Plugin Konfiguration anpassen:
 ```
 
 ## Test
-- [Swagger-UI](http://localhost:8080/v0/swagger-ui.html)`
+- [Swagger-UI](http://localhost:8080/v0/swagger-ui.html)
 - Neues Buch hinzufügen:
 
 ```
