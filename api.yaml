@@ -1,0 +1,41 @@
+swagger: "2.0"
+info:
+  title: "Bookstore API"
+  description: "A bookstore API project"
+  termsOfService: "Demo"
+  contact:
+    name: "Thomas Hochbichler"
+    url: "http://hochbichler.at/bookstore"
+    email: "thomas@hochbichler.at"
+  version: "0.0.1"
+host: "localhost:8080"
+basePath: "/v0"
+schemes: 
+ - http
+consumes: 
+ - application/json
+produces: 
+ - application/json
+paths:
+  /books:
+    get:
+      operationId: "filterAllBooks"
+      description: "Returns all books"
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: "Returns a list of books"
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Book'
+definitions:
+  Book:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string

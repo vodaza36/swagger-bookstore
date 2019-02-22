@@ -1,0 +1,15 @@
+/Users/xhocht/Development/github.com/swagger-bookstore/server/src/main/java/io/swagger/RFC3339DateFormat.java
+/Users/xhocht/Development/github.com/swagger-bookstore/server/src/main/java/io/swagger/configuration/HomeController.java
+/Users/xhocht/Development/github.com/swagger-bookstore/server/src/main/java/io/swagger/api/BooksApiController.java
+/Users/xhocht/Development/github.com/swagger-bookstore/server/src/main/java/io/swagger/api/ApiOriginFilter.java
+/Users/xhocht/Development/github.com/swagger-bookstore/server/src/main/java/io/swagger/Swagger2SpringBoot.java
+/Users/xhocht/Development/github.com/swagger-bookstore/server/src/main/java/io/swagger/service/BooksApiService.java
+/Users/xhocht/Development/github.com/swagger-bookstore/server/src/main/java/io/swagger/api/BooksApi.java
+/Users/xhocht/Development/github.com/swagger-bookstore/server/src/main/java/io/swagger/api/NotFoundException.java
+/Users/xhocht/Development/github.com/swagger-bookstore/server/src/main/java/io/swagger/configuration/CustomInstantDeserializer.java
+/Users/xhocht/Development/github.com/swagger-bookstore/server/src/main/java/io/swagger/model/Book.java
+/Users/xhocht/Development/github.com/swagger-bookstore/server/src/main/java/io/swagger/api/ApiException.java
+/Users/xhocht/Development/github.com/swagger-bookstore/server/src/main/java/io/swagger/api/ApiResponseMessage.java
+/Users/xhocht/Development/github.com/swagger-bookstore/server/src/main/java/io/swagger/configuration/JacksonConfiguration.java
+/Users/xhocht/Development/github.com/swagger-bookstore/server/src/main/java/io/swagger/api/BooksApiDelegate.java
+/Users/xhocht/Development/github.com/swagger-bookstore/server/src/main/java/io/swagger/configuration/SwaggerDocumentationConfig.java
