@@ -10,6 +10,7 @@ In diesem Ansatz wird die Code-Generierung in Maven Build Prozess integriert. Da
 - API Spezifikation in der Datei `api.yml` speichern
 - SwaggerCodegen Konfig-Datei in `config.json` speichern (siehe Branch first_approach)
 - Swagger-Codegen-CLI ausführen: `swagger-codegen generate -i api.yaml -l spring -o ./server -c ./config.json`
+- Generierte Java Sourcen löschen
 
 ## Maven-Plugin für den Swagger-Codegen
 - Die `pom.xml` Datei erweitern um folgendes Plugin:
