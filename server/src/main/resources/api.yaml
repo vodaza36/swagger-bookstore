@@ -12,6 +12,11 @@ host: "localhost:8080"
 basePath: "/v0"
 schemes:
 - http
+securityDefinitions:
+  basicAuth:
+    type: basic
+security:
+  - basicAuth: []
 paths:
   /books:
     get:
@@ -21,6 +26,8 @@ paths:
       description: "Returns all books"
       produces:
       - application/json
+      security:
+        - basicAuth: []
       responses:
         '200':
           description: "Returns a list of books"
@@ -28,6 +35,8 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Book'
+        '401':
+          $ref: "#/responses/UnauthorizedError"
     post:
       tags:
       - "book"
@@ -37,6 +46,8 @@ paths:
       - application/json
       consumes:
       - application/json
+      security:
+        - basicAuth: []
       parameters:
       - in: "body"
         name: "body"
@@ -51,6 +62,8 @@ paths:
             $ref: '#/definitions/Book'
         '405':
           description: "Invalid input"
+        '401':
+          $ref: "#/responses/UnauthorizedError"
 definitions:
   Book:
     type: object
@@ -69,3 +82,9 @@ definitions:
     - id: 100
       name: Book title
       description: This is the book description
+responses:
+  UnauthorizedError:
+    description: Authentication information is missing or invalid
+    headers:
+      WWW_Authenticate:
+        type: string
