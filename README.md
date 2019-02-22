@@ -1,43 +1,33 @@
 # Swagger Bookstore API
 In diesem Beispiel wird gezeigt, wie anhand einer beispielhaften OpenAPI Spezifikation, der dazugehörige Server-Code generiert werden kann. Das Repository ist dabei in unterschiedliche Branches gegliedert, welche die angebotenen Möglichkeiten näher untersucht.
 
-## Branch 'second-approach'
-In diesem Ansatz wird die Code-Generierung in Maven Build Prozess integriert. Dazu wird wie folgt vorgegangen:
-1. Das initiale Maven-Projekt wird mit der Swagger-Codegen-CLI erzeugt
-2. Das [Maven-Plugin für den Swagger-Codegen](https://github.com/swagger-api/swagger-codegen/tree/master/modules/swagger-codegen-maven-plugin) wird manuell in die `pom.xml` Datei integriert 
+## Branch 'third-approach'
+Dieser Branch beschäftig sich mit dem Thema "Bean Validation". Dabei wird die Konfiguration des CodeGenerators erweitert, sodass der Server-Teil mit aktiver BeanValidation generiert wird.
 
-## Initiale MVN-Projekt
-- API Spezifikation in der Datei `api.yml` speichern
-- SwaggerCodegen Konfig-Datei in `config.json` speichern (siehe Branch first_approach)
-- Swagger-Codegen-CLI ausführen: `swagger-codegen generate -i api.yaml -l spring -o ./server -c ./config.json`
-- Generierte Java Sourcen löschen
-
-## Maven-Plugin für den Swagger-Codegen
-- Die `pom.xml` Datei erweitern um folgendes Plugin:
+## CodeGen Konfig
+In der `pom.xml` die Swagger-Maven-Plugin Konfiguration anpassen:
 ```
-<plugin>
-    <groupId>io.swagger</groupId>
-    <artifactId>swagger-codegen-maven-plugin</artifactId>
-    <version>2.3.1</version>
-    <executions>
-        <execution>
-            <goals>
-                <goal>generate</goal>
-            </goals>
-            <configuration>
-                <inputSpec>${project.basedir}/src/main/resources/api.yaml</inputSpec>
-                <language>spring</language>
-                <configOptions>
-                    <delegatePattern>true</delegatePattern>
-                </configOptions>
-            </configuration>
-        </execution>
-    </executions>
-</plugin>
+...
+<useBeanValidation>true</useBeanValidation>
+...
 ```
-- Die API-Spezifikation (`api.yaml`) verschieben in das Verzeichnis: `server/src/main/resources/`
-- Die CodeGen Konfiguration (`config.json`) löschen
-- Ins Server Verzeichnis wechseln und den CodeGenerator starten: `mvn clean generate-sources`
 
-# Test
-- `curl -X GET "http://localhost:8080/v0/books"`
+## Test
+- [Swagger-UI](http://localhost:8080/v0/swagger-ui.html)`
+- Neues Buch hinzufügen:
+
+```
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+   "description": "Test Book", 
+   "id": 1,
+   "name": "MyFirstBook" 
+ }' 'http://localhost:8080/v0/books'
+```
+- Ungültiges Buch hinzufügen:
+
+```
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{
+   "description": "Test Book", 
+   "id": 1
+ }' 'http://localhost:8080/v0/books'
+```

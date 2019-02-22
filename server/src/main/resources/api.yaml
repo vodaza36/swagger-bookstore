@@ -15,6 +15,8 @@ schemes:
 paths:
   /books:
     get:
+      tags:
+        - "book"
       operationId: "filterAllBooks"
       description: "Returns all books"
       produces:
@@ -26,6 +28,29 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Book'
+    post:
+      tags:
+      - "book"
+      operationId: "addNewBook"
+      description: "Adds a new book"
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "A JSON book objects"
+          required: true
+          schema:
+            $ref: '#/definitions/Book'
+      responses:
+        '201':
+          description: "Returns the added book"
+          schema:
+            $ref: '#/definitions/Book'
+        '405':
+          description: "Invalid input"
 definitions:
   Book:
     type: object
@@ -35,3 +60,8 @@ definitions:
         format: int64
       name:
         type: string
+      description:
+        type: string
+    required:
+      - id
+      - name

@@ -13,6 +13,11 @@ import java.util.List;
 public class BooksApiService implements BooksApiDelegate {
 
     @Override
+    public ResponseEntity<Book> addNewBook(Book body) {
+        return ResponseEntity.ok(body);
+    }
+
+    @Override
     public ResponseEntity<List<Book>> filterAllBooks() {
         Book book = new Book();
         book.setId(100L);
@@ -22,4 +27,5 @@ public class BooksApiService implements BooksApiDelegate {
         ResponseEntity<List<Book>> result = new ResponseEntity<List<Book>>(books, HttpStatus.OK);
         return result;
     }
+
 }
