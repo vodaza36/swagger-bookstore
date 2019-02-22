@@ -70,7 +70,7 @@ swagger-codegen generate -i api.yaml -l spring -o ./server -c ./config.json
 
 ## Service Implementierung
 Im Maven Source das Package 'io.swagger.service' anlegen und darin die Service Implementierung speichern.
-```
+```java
 package io.swagger.service;
 
 import io.swagger.api.BooksApiDelegate;
@@ -95,14 +95,16 @@ public class BooksApiService implements BooksApiDelegate {
         ResponseEntity<List<Book>> result = new ResponseEntity<List<Book>>(books, HttpStatus.OK);
         return result;
     }
-}`
+}
 ```
 
 ## Test
 Den Spring Server wie folgt starten:
-> mvn spring-boot:run
+```
+mvn spring-boot:run
+```
 
 Folgenden GET Request mittels cURL an den Server schicken:
-> curl -X GET "http://localhost:8080/v0/books" -H "accept: application/json"
-
-
+```
+curl -X GET "http://localhost:8080/v0/books" -H "accept: application/json"
+```
